@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+       <meta charset="utf-8">
+       <meta http-equiv="X-UA-Compatible" content="IE=edge">
+       <meta name="viewport" content="width=device-width, initial-scale=1">
+       <title>Register</title>
+
+       <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+       <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+       <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+       <link rel="stylesheet" href="/static/custom-styles.css">
+
+   </head>
+   <body>
+
+       <div class="container login-form ">
+           <div class="row justify-content-center align-self-center">
+               <div class="col-md-8">
+                   {% if registrationFailed %}
+                       <div class="alert alert-danger d-flex align-items-center" role="alert">
+                           <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+                           <div>{{ error }}</div>
+                       </div>
+                   {% endif %}
+                   <div class="card">
+                       <div class="card-header">Register new user</div>
+                       <div class="card-body">
+                           <form class="form-horizontal" action="/register" method="POST">
+
+                               <div class="form-group row">
+                                   <label for="name" class="col-md-4 col-form-label text-md-right">Name</label>
+                                   <div class="col-md-6">
+                                       <input type="text" id="name" class="form-control" name="name" required autofocus>
+                                   </div>
+                               </div>
+
+                               <div class="form-group row">
+                                   <label for="email_address" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
+                                   <div class="col-md-6">
+                                       <input type="text" id="email_address" class="form-control" name="email-address" required>
+                                   </div>
+                               </div>
+
+                               <div class="form-group row">
+                                   <label for="phoneNo" class="col-md-4 col-form-label text-md-right">Contact Number</label>
+                                   <div class="col-md-6">
+                                       <input type="text" id="phoneNo" class="form-control" name="phoneNo" required autofocus>
+                                   </div>
+                               </div>
+
+                               <div class="form-group row">
+                                   <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
+                                   <div class="col-md-6">
+                                       <input type="password" id="password" class="form-control" name="password" required>
+                                   </div>
+                               </div>
+
+                               <div class="col-md-6 offset-md-4">
+                                   <button type="submit" class="btn btn-primary">
+                                   Register
+                                   </button>
+                                   <a href={{ url_for('login') }} class="btn btn-link">
+                                   Login
+                                   </a>
+                               </div>
+                           </form>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+
+   </body>
+</html>
+

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+       <meta charset="utf-8">
+       <meta http-equiv="X-UA-Compatible" content="IE=edge">
+       <meta name="viewport" content="width=device-width, initial-scale=1">
+       <title>Dashboard</title>
+
+       <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+       <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+       <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+       <link rel="stylesheet" href="/static/custom-styles.css">
+
+   </head>
+   <body>
+
+   <div class="container welcome">
+       <h3>Welcome {{ selectedUser['name'] }}!</h3>
+   </div>
+
+   <div class="container dash-table">
+       <table class="table caption-top">
+           <thead>
+               <tr>
+                   <th scope="col">Name</th>
+                   <th scope="col">Contact Number</th>
+                   <th scope="col">E-Mail ID</th>
+               </tr>
+           </thead>
+           <tbody>
+               {% for user in users %}
+                   <tr>
+                       <td>{{ user['name'] }}</td>
+                       <td>{{ user['phoneNo'] }}</td>
+                       <td>{{ user['email'] }}</td>
+                   </tr>
+               {% endfor %}
+           </tbody>
+       </table>
+   </div>
+
+   </body>
+</html>
