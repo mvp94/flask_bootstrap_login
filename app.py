@@ -1,3 +1,5 @@
+import random
+
 from flask import Flask, render_template, redirect, request, url_for
 
 app = Flask(__name__)
@@ -51,7 +53,8 @@ def add_user():
    user = {'name': request.form["name"],
            'email': request.form["email-address"],
            'phoneNo': request.form["phoneNo"],
-           'password': request.form["password"]}
+           'password': request.form["password"],
+           'number': random.randint(0, 500)}
    data[user["email"]] = user
    return render_template('login.html', addedUser=True)
 
