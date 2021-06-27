@@ -1,0 +1,12 @@
+create database if not exists flaskdemo;
+
+create table if not exists users
+(
+	email varchar(255) not null,
+	name varchar(255) null,
+	phoneNo varchar(255) null,
+	password varchar(255) null,
+	number varchar(255) null,
+	constraint users_pk
+		primary key (email)
+);
